@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<!-- Chatbot Prompt: Create a dashboard webpage for the garage door api -->
+<html>
+
+<head>
+    <title>Garage Door Dashboard</title>
+    <style>
+        /* Add some basic styles to the page */
+        body {
+            font-family: sans-serif;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 16px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        /* Style the door cards */
+        .door-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+            padding: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .door-card h2 {
+            margin: 0;
+        }
+
+        /* Style the buttons */
+        .door-card button {
+            padding: 8px 16px;
+            font-size: 14px;
+            border: none;
+            border-radius: 4px;
+            background-color: #4caf50;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .door-card button:hover {
+            background-color: #3d8b40;
+        }
+
+        /* Style the status indicators */
+        .door-card .status {
+            color: #333;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .door-card .status.open {
+            color: #4caf50;
+        }
+
+        .door-card .status.closed {
+            color: #f44336;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Garage Door Dashboard</h1>
+
+        <div class="door-card">
+            <h2>Door 1</h2>
+            <div>
+                <button onclick="openDoor(1)">Open</button>
+                <button onclick="closeDoor(1)">Close</button>
+                <span class="status closed">Closed</span>
+            </div>
+        </div>
+
+        <div class="door-card">
+            <h2>Door 2</h2>
+            <div>
+                <button onclick="openDoor(2)">Open</button>
+                <button onclick="closeDoor(2)">Close</button>
+                <span class="status closed">Closed</span>
+            </div>
+        </div>
+
+        <script>
+            // Function to open a door
+            function openDoor(doorId) {
+                // TODO: send a request to the API to open the specified door
+
+                // Update the status indicator on the page to show that the door is open
+                const statusIndicator = document.querySelector(`.door-card:nth-child(${doorId}) .status`);
+                statusIndicator.classList.remove("closed");
+                statusIndicator.classList.add("open");
+                statusIndicator.innerText = "Open";
+            }
+
+            // Function to close a door
+            function closeDoor(doorId) {
+                // TODO: send a request to the API to close the specified door
+
+                // Update the status indicator on the page to show that the door is closed
+                const statusIndicator = document.querySelector(`.door-card:nth-child(${doorId}) .status`);
+                statusIndicator.classList.remove("open");
+                statusIndicator.classList.add("closed");
+                statusIndicator.innerText = "Closed";
+            }
+        </script>
+
+    </div>
+</body>
+
+</html>
+
+<!--        
+        This dashboard webpage provides a simple interface for 
+        interacting with the garage door API. It displays a card
+        for each door, with buttons for opening and closing the 
+        door and a status indicator that shows whether the door 
+        is currently open or closed. When a button is clicked, 
+        the corresponding door is opened or closed, and the status
+        indicator is updated to reflect the current status of 
+        the door.
+
+        This is just one example of how a dashboard webpage for 
+        the garage door API could be implemented. Depending on 
+        your specific requirements, you may need to adjust the 
+        design and functionality of the webpage to suit your 
+        needs. For example, you may want -->
