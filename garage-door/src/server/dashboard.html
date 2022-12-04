@@ -94,11 +94,9 @@
             // Function to open a door
             function openDoor(doorId) {
                 // TODO: send a request to the API to open the specified door
-                
-                doorId++ ; // not sure why this is required -- but 2 == first door and 3 == second door.
 
                 // Update the status indicator on the page to show that the door is open
-                const statusIndicator = document.querySelector(`.door-card:nth-child(${doorId}) .status`);
+                const statusIndicator = document.querySelector(`.door-card:nth-child(${doorId + 1}) .status`);
                 statusIndicator.classList.remove("closed");
                 statusIndicator.classList.add("open");
                 statusIndicator.innerText = "Open";
@@ -109,7 +107,7 @@
                 // TODO: send a request to the API to close the specified door
 
                 // Update the status indicator on the page to show that the door is closed
-                const statusIndicator = document.querySelector(`.door-card:nth-child(${doorId}) .status`);
+                const statusIndicator = document.querySelector(`.door-card:nth-child(${doorId + 1}) .status`);
                 statusIndicator.classList.remove("open");
                 statusIndicator.classList.add("closed");
                 statusIndicator.innerText = "Closed";
